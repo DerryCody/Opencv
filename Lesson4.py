@@ -1,0 +1,30 @@
+import cv2
+#Line
+pika1=cv2.imread("Images/pika.png",cv2.IMREAD_COLOR)
+thickness=10
+colour=(0,70,20)
+startcoords=(0,0)
+endcoords=(50,50)
+image=cv2.line(pika1,startcoords,endcoords,colour,thickness)
+cv2.imshow("Pika",image)
+#Rectangle-thickness as negative one makes it fill in
+topleft=(0,0)
+bottomright=(70,70)
+colour2=(70,0,20)
+thickness2=-1
+image2=cv2.rectangle(pika1,topleft,bottomright,colour2,thickness2)
+cv2.imshow("Pika",image2)
+#Circle
+center=(320,320)
+radius=50
+image3=cv2.circle(pika1,center,radius,colour,thickness2)
+cv2.imshow("Pika",image3)
+#Writing
+font=cv2.FONT_ITALIC
+coords=(300,50)
+phrase="Hello!"
+thickness3=5
+image4=cv2.putText(pika1,phrase,coords,font,1,colour,thickness3,cv2.LINE_AA)
+cv2.imshow("Pika",image4)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
