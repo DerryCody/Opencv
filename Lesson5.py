@@ -28,13 +28,14 @@ def create():
   images=[]
   for file in os.listdir(('.')):
     if file.endswith(".jpg") or file.endswith(".png") or file.endswith("jpeg"):
-      images.append(img)
-  frame=cv2.imread(os.path.join(".",images[0].filename))
+      images.append(file)
+  frame=cv2.imread(os.path.join(".",images[0]))
   height,width,layers=frame.shape
   fourcc=cv2.VideoWriter_fourcc(*"mp4v")
   video=cv2.VideoWriter(video1,fourcc,1,(width,height))
   for image in images:
-    video.write(cv2.imread(os.path.join(".",image.filename)))
+    video.write(cv2.imread(os.path.join(".",image)))
   cv2.destroyAllWindows()
+  video.release()
 create()
     
